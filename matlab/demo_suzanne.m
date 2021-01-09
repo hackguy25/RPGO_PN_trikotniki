@@ -12,6 +12,7 @@ suz_points = load("suzanne_points.txt");
 suz_normals = normalize(suz_points(:, [4 5 6]));
 suz_points = suz_points(:, [1 2 3]);
 suz_tris = load("suzanne_tris.txt") + 1;
+suz_tris = suz_tris(:, [1 3 2]);
 suzanne = triangulation(suz_tris, suz_points);
 
 % trisurf(suzanne, "EdgeColor", "none");
@@ -38,12 +39,12 @@ axis equal;
 camproj('perspective');
 hold on;
 
-[suz_points_s, suz_normals_s, suz_tris_s] = ...
+[suz_points_s, ~, suz_tris_s] = ...
     pn_subdivide(suz_points, suz_normals, suz_tris, 31);
 suzanne = triangulation(suz_tris_s, suz_points_s);
 f = trisurf(suzanne, "EdgeColor", "none");
 shading interp;
-lightangle(180,30)
+lightangle(0,30)
 f.FaceLighting = 'gouraud';
 f.AmbientStrength = 0.3;
 f.DiffuseStrength = 0.8;
