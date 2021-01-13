@@ -113,6 +113,32 @@ grid on;
 view(12,5);
 
 hold off;
+disp(1);
+pause;
+
+clf;
+axis equal;
+camproj('perspective');
+hold on;
+
+[suz_points_s, suz_normals_s, suz_tris_s] = ...
+    pn_subdivide(suz_points, suz_normals, suz_tris, 2);
+suzanne = triangulation(suz_tris_s, suz_points_s);
+
+f = trisurf(suzanne, "EdgeColor", "none");
+lightangle(0,30);
+f.FaceLighting = 'gouraud';
+f.FaceColor = "interp";
+f.AmbientStrength = 0.3;
+f.DiffuseStrength = 0.8;
+f.SpecularStrength = 0.9;
+f.SpecularExponent = 25;
+f.BackFaceLighting = 'unlit';
+grid on;
+view(12,5);
+
+hold off;
+disp(2);
 pause;
 
 clf;
