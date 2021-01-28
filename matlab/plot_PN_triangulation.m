@@ -1,3 +1,4 @@
+
 function plot_PN_triangulation(points,normals,triangles)
 % points:       n x 3 tabela toèk v prostoru
 % normals:      n x 3 tabela normiranih vektorjev

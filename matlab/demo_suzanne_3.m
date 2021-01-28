@@ -22,8 +22,10 @@ f.DiffuseStrength = 0.8;
 f.SpecularStrength = 0.9;
 f.SpecularExponent = 25;
 f.BackFaceLighting = 'unlit';
-grid on;
+grid off;
 view(12,5);
+print('figs/flat', '-dpng', '-r600')
+grid on;
 
 hold off;
 pause;
@@ -42,8 +44,10 @@ f.DiffuseStrength = 0.8;
 f.SpecularStrength = 0.9;
 f.SpecularExponent = 25;
 f.BackFaceLighting = 'unlit';
-grid on;
+grid off;
 view(12,5);
+print('figs/interp', '-dpng', '-r600')
+grid on;
 
 hold off;
 pause;
@@ -62,13 +66,15 @@ f.DiffuseStrength = 0.8;
 f.SpecularStrength = 0.9;
 f.SpecularExponent = 25;
 f.BackFaceLighting = 'unlit';
-grid on;
 view(12,5);
 
 quiver3(suz_points(:, 1), suz_points(:, 2), suz_points(:, 3), ...
     suz_normals(:, 1), suz_normals(:, 2), suz_normals(:, 3));
 
 hold off;
+grid off;
+print('figs/interp_normals', '-dpng', '-r600')
+grid on;
 pause;
 
 clf;
@@ -109,8 +115,10 @@ f.DiffuseStrength = 0.8;
 f.SpecularStrength = 0.9;
 f.SpecularExponent = 25;
 f.BackFaceLighting = 'unlit';
-grid on;
+grid off;
 view(12,5);
+print('figs/lod_1', '-dpng', '-r600')
+grid on;
 
 hold off;
 disp(1);
@@ -134,8 +142,10 @@ f.DiffuseStrength = 0.8;
 f.SpecularStrength = 0.9;
 f.SpecularExponent = 25;
 f.BackFaceLighting = 'unlit';
-grid on;
+grid off;
 view(12,5);
+print('figs/lod_2', '-dpng', '-r600')
+grid on;
 
 hold off;
 disp(2);
@@ -159,8 +169,10 @@ f.DiffuseStrength = 0.8;
 f.SpecularStrength = 0.9;
 f.SpecularExponent = 25;
 f.BackFaceLighting = 'unlit';
-grid on;
+grid off;
 view(12,5);
+print('figs/lod_3', '-dpng', '-r600')
+grid on;
 
 hold off;
 disp(3);
@@ -184,8 +196,10 @@ f.DiffuseStrength = 0.8;
 f.SpecularStrength = 0.9;
 f.SpecularExponent = 25;
 f.BackFaceLighting = 'unlit';
-grid on;
+grid off;
 view(12,5);
+print('figs/lod_5', '-dpng', '-r600')
+grid on;
 
 hold off;
 disp(5);
@@ -197,7 +211,7 @@ camproj('perspective');
 hold on;
 
 [suz_points_s, suz_normals_s, suz_tris_s] = ...
-    pn_subdivide(suz_points, suz_normals, suz_tris, 7);
+    pn_subdivide(suz_points, suz_normals, suz_tris, 31);
 suzanne = triangulation(suz_tris_s, suz_points_s);
 
 f = trisurf(suzanne, "EdgeColor", "none");
